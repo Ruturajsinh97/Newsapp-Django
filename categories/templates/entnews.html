@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{%static 'images/favicon-1.png' %}" type="image/png">
+    <title>News Abhee Tak</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+       <img src="{%static 'images/News-abhee-tak-logo.png' %}"height="60px" width="100px"/>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ml-auto" style="align-self: center;padding-top: 10px;" >
+        <div class="slide-container">
+          <input type="checkbox" class="slide-input" id="slideToggle">
+          <label class="slide-slider" for="slideToggle"></label>
+        </div>
+      </li>
+       <li class="nav-item ">
+          <a class="nav-link" href="{% url 'index'%}">All News<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'spnews'%}">Sports News<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'topnews'%}">Top News<span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'trendnews'%}">Trending  News<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'scinews'%}">Science News<span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'entnews'%}">Entertainment News<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+   </div>
+
+    </nav>
+
+<div class="row">
+<div class="card-group">
+  {% for value in entertainmentdata.data.articles %}
+     <div class="col-md-4" >
+                 <a href="{{value.sourceUrl}}">
+     <div class="card" style="margin: 2rem; height: auto">
+           <img src="{{ value.imageUrl }}" class="card-img-top" alt="Image" style="height:25rem"> </a>
+    <div class="card-body">
+                    <h5 class="card-title"> {{value.title}}</h5>
+                    <h6 class="card-title"> {{value.subtitle}}</h6>
+                    <p class="cutoff-text" style="opacity:.75;text-overflow: ellipsis; overflow: hidden;">{{value.content}} </p>
+                    <input class="expand-btn" type="checkbox">
+        <hr>
+    </div>
+         <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-dark"><b>{{value.sourceName}}</b></li>
+                <li class="list-group-item list-group-item-dark">{{value.authorName}}</li>
+         </ul>
+  </div>
+</div>
+    {%endfor%}
+</div>
+<footer class="bg-light py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="social-icons" style="text-align:center;">
+                    <b>Stay in touch</b><br>
+                    <a href="https://github.com/Ruturajsinh97" class="text-dark"><i class="fa-brands fa-github fa-fade"></i></a>
+                    <a href="https://rockylab.hashnode.dev/" class="text-dark"><i class="fa-brands fa-hashnode fa-fade"></i></a>
+                    <a href="https://www.linkedin.com/in/ruturajsinhrahevar/" class="text-dark"><i class="fa-brands fa-linkedin fa-fade"></i></a>
+                     <a href="https://www.instagram.com/ruturajsinh_rahevar/" class="text-dark"><i class="fa-brands  fa-instagram fa-fade"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="divider">
+        <div class="row" style="font-size:10px;">
+            <div class="col">
+                <div class="pull-left">
+                    <p><i class="fa fa-copyright"></i> 2023 Ruturaj-Developer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/msg.js' %}"></script>
+</body>
+</html>
