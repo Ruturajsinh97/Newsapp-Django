@@ -56,10 +56,9 @@
 <div class="row">
 <div class="card-group">
   {% for value in topdata.data.articles %}
-     <div class="col-md-4" >
-                 <a href="{{value.sourceUrl}}">
+    <div class="col-md-4">
      <div class="card" style="margin: 2rem; height: auto">
-           <img src="{{ value.imageUrl }}" class="card-img-top" alt="Image" style="height:25rem"> </a>
+         <a href="{{value.sourceUrl}}"> <img src="{{ value.imageUrl }}" class="card-img-top" alt="Image" style="height:25rem"></a>
     <div class="card-body">
                     <h5 class="card-title"> {{value.title}}</h5>
                     <h6 class="card-title"> {{value.subtitle}}</h6>
@@ -71,16 +70,18 @@
                     <li class="list-group-item list-group-item-dark"><b>{{value.sourceName}}</b></li>
                 <li class="list-group-item list-group-item-dark">{{value.authorName}}</li>
          </ul>
+     </div>
+    </div>
+     {%endfor%}
   </div>
 </div>
-    {%endfor%}
-</div>
+
 <footer class="bg-light py-2">
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="social-icons" style="text-align:center;">
-                    <b>Stay in touch</b><br>
+                     <b class="footer-text">Stay in touch</b><br>
                     <a href="https://github.com/Ruturajsinh97" class="text-dark"><i class="fa-brands fa-github fa-fade"></i></a>
                     <a href="https://rockylab.hashnode.dev/" class="text-dark"><i class="fa-brands fa-hashnode fa-fade"></i></a>
                     <a href="https://www.linkedin.com/in/ruturajsinhrahevar/" class="text-dark"><i class="fa-brands fa-linkedin fa-fade"></i></a>
@@ -93,7 +94,7 @@
         <div class="row" style="font-size:10px;">
             <div class="col">
                 <div class="pull-left">
-                    <p><i class="fa fa-copyright"></i> 2023 Ruturaj-Developer</p>
+                    <p class="footer-text"><i class="fa fa-copyright"></i> 2023 Ruturaj-Developer</p>
                 </div>
             </div>
         </div>
@@ -105,6 +106,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/msg.js' %}"></script>
+
 </body>
 </html>
