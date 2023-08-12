@@ -1,0 +1,130 @@
+
+.toggle-container {
+  display: inline-block;
+}
+
+.daynigbtn {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.day-icon,
+.night-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.day-icon {
+  left: 10px;
+}
+
+.night-icon {
+  right: 10px;
+  opacity: 0;
+}
+
+.daynigbtn:checked + .label {
+  background-color: #6db8ff;
+}
+
+.daynigbtn:checked + .label .day-icon {
+  opacity: 0;
+}
+
+.daynigbtn:checked + .label .night-icon {
+  opacity: 1;
+}
+.cutoff-text {
+  --max-lines: 3;
+  --line-height: 1.4;
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+  overflow: hidden;
+  position: relative;
+  
+}
+  .cutoff-text:has(+ .expand-btn:not(:checked))::before {
+  content:"";
+  position: absolute;
+  height: calc(1em * var(--line-height));
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent);
+  }
+  .expand-btn {
+  appearance: none;
+  border: 1px solid black;
+  padding: .5em;
+  border-radius: .25em;
+  cursor: pointer;
+  margin-top: 1rem;
+  background-color: #CCC;
+  }
+  .expand-btn:hover {
+  background-color: #CCC;
+  }
+  .expand-btn::before {
+  content: "Expand";
+  }
+  .expand-btn:checked::before {
+  content: "Collapse";
+  }
+  .cutoff-text:has(+ .expand-btn:checked) {
+  max-height: none;
+  }
+  body {
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.card {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.pull-left {
+    text-align: initial;
+}
+.dark-mode {
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #f0f0f0;
+}
+
+body.dark-mode .navbar {
+    background-color: #222;
+}
+
+.dark-mode .card {
+    background-color: #222;
+    color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
